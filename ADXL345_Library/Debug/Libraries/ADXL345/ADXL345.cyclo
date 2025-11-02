@@ -1,0 +1,4 @@
+../Libraries/ADXL345/ADXL345.c:8:5:who_iam	2
+../Libraries/ADXL345/ADXL345.c:24:5:writeADXL	2
+../Libraries/ADXL345/ADXL345.c:35:5:readADXL8	2
+../Libraries/ADXL345/ADXL345.c:45:6:initADXL	2

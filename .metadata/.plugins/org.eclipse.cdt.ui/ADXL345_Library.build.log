@@ -1,0 +1,17 @@
+20:05:57 **** Incremental Build of configuration Debug for project ADXL345_Library ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"D:/Projects/Library/ADXL345_Library/Libraries/ADXL345" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADXL345_Library.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Projects\Library\ADXL345_Library\STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADXL345_Library.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADXL345_Library.elf
+ 
+arm-none-eabi-size  ADXL345_Library.elf 
+arm-none-eabi-objdump -h -S ADXL345_Library.elf  > "ADXL345_Library.list"
+   text	   data	    bss	    dec	    hex	filename
+  10312	     12	   1660	  11984	   2ed0	ADXL345_Library.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADXL345_Library.list
+ 
+
+20:05:59 Build Finished. 0 errors, 0 warnings. (took 1s.774ms)
+
