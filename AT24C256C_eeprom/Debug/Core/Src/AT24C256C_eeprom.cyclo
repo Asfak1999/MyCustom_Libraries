@@ -1,0 +1,3 @@
+../Core/Src/AT24C256C_eeprom.c:13:6:init_At24EEPROM	1
+../Core/Src/AT24C256C_eeprom.c:21:8:write_At24EEPROM	1
+../Core/Src/AT24C256C_eeprom.c:36:8:read_At24EEPROM	2
