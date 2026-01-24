@@ -49,7 +49,7 @@ I2C_HandleTypeDef hi2c1;
 uint8_t WriteData;
 uint8_t ReadData1;
 uint8_t ReadData2;
-
+uint8_t array[8];
 
 /* USER CODE END PV */
 
@@ -104,13 +104,19 @@ int main(void)
   init_At24EEPROM(&eeprom, &hi2c1, 0xA0);
 
   WriteData = 36;
-
   write_At24EEPROM(&eeprom, &WriteData, 0x0000);
-  read_At24EEPROM(&eeprom, &ReadData1, 0x0000);
-
   WriteData = 26;
   write_At24EEPROM(&eeprom, &WriteData, 0x0001);
-  read_At24EEPROM(&eeprom, &ReadData2, 0x0001);
+  WriteData = 12;
+  write_At24EEPROM(&eeprom, &WriteData, 0x0002);
+  WriteData = 55;
+  write_At24EEPROM(&eeprom, &WriteData, 0x0003);
+  WriteData = 85;
+  write_At24EEPROM(&eeprom, &WriteData, 0x0004);
+  WriteData = 100;
+  write_At24EEPROM(&eeprom, &WriteData, 0x0005);
+
+  readBytes_At24EEPROM(&eeprom, array, 0x0000, 6);
 
 
   /* USER CODE END 2 */
