@@ -1,4 +1,6 @@
-../Core/Src/AT24C256C_eeprom.c:13:5:init_At24EEPROM	24	static
-../Core/Src/AT24C256C_eeprom.c:33:8:write_At24EEPROM	40	static
-../Core/Src/AT24C256C_eeprom.c:48:8:read_At24EEPROM	40	static
-../Core/Src/AT24C256C_eeprom.c:59:9:readBytes_At24EEPROM	40	static
+../Core/Src/AT24C256C_eeprom.c:19:22:AT24_Init	24	static
+../Core/Src/AT24C256C_eeprom.c:46:22:AT24_WriteU8	40	static
+../Core/Src/AT24C256C_eeprom.c:68:22:AT24_WriteU16	48	static
+../Core/Src/AT24C256C_eeprom.c:89:22:read_At24EEPROM	40	static
+../Core/Src/AT24C256C_eeprom.c:102:22:readBytes_At24EEPROM	40	static
+../Core/Src/AT24C256C_eeprom.c:124:6:readLastAddr	24	static

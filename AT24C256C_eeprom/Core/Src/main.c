@@ -49,7 +49,8 @@ I2C_HandleTypeDef hi2c1;
 uint8_t WriteData;
 uint8_t ReadData1;
 uint8_t ReadData2;
-uint8_t array[8];
+uint8_t array[6];
+uint8_t lastAddress;
 
 /* USER CODE END PV */
 
@@ -101,22 +102,26 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   At24EEPROM_t eeprom;
-  init_At24EEPROM(&eeprom, &hi2c1, 0xA0);
+  AT24_Init(&eeprom, &hi2c1, 0xA0);
 
   WriteData = 36;
-  write_At24EEPROM(&eeprom, &WriteData, 0x0000);
+  AT24_WriteU8(&eeprom, &WriteData, 0x0000);
   WriteData = 26;
-  write_At24EEPROM(&eeprom, &WriteData, 0x0001);
+  AT24_WriteU8(&eeprom, &WriteData, 0x0001);
   WriteData = 12;
-  write_At24EEPROM(&eeprom, &WriteData, 0x0002);
+  AT24_WriteU8(&eeprom, &WriteData, 0x0002);
   WriteData = 55;
-  write_At24EEPROM(&eeprom, &WriteData, 0x0003);
+  AT24_WriteU8(&eeprom, &WriteData, 0x0003);
   WriteData = 85;
-  write_At24EEPROM(&eeprom, &WriteData, 0x0004);
+  AT24_WriteU8(&eeprom, &WriteData, 0x0004);
   WriteData = 100;
-  write_At24EEPROM(&eeprom, &WriteData, 0x0005);
+  AT24_WriteU8(&eeprom, &WriteData, 0x0005);
 
   readBytes_At24EEPROM(&eeprom, array, 0x0000, 6);
+
+  WriteData = 10;
+  AT24_WriteU8(&eeprom, &WriteData, 0x0006);
+  readLastAddr(&eeprom, &lastAddress);
 
 
   /* USER CODE END 2 */
