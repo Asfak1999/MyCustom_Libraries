@@ -12,6 +12,11 @@
 #include <string.h>
 #include "main.h"
 
+#define EEPROM_HEADER 	0x0000
+#define EEPROM_BODY 	0x0000
+
+
+
 
 /**
   * @brief EEPROM Initialization Structure definition
@@ -36,7 +41,8 @@ typedef enum
 	EEPROM_INIT_ERROR,		/*!< EEPROM Initialization error             */
 	EEPROM_NOT_READY,		/*!< EEPROM Device status		             */
 	EEPROM_WRITE_ERROR,		/*!< EEPROM Write Memory Error               */
-	EEPROM_READ_ERROR		/*!< EEPROM Read Memory Error                */
+	EEPROM_READ_ERROR,		/*!< EEPROM Read Memory Error                */
+	EEPROM_NOT_ERASE		/*!< EEPROM Read Memory Error                */
 
 }EEPROM_ErrorHandle_t;
 
@@ -51,8 +57,13 @@ typedef enum
 EEPROM_ErrorHandle_t AT24_Init(At24EEPROM_t *config, I2C_HandleTypeDef *i2c, uint8_t devAddress);
 EEPROM_ErrorHandle_t AT24_WriteU8(At24EEPROM_t *config, uint8_t *pdata, uint16_t dataAddr);
 EEPROM_ErrorHandle_t AT24_WriteU16(At24EEPROM_t *config, uint16_t *pdata, uint16_t dataAddr);
-EEPROM_ErrorHandle_t read_At24EEPROM(At24EEPROM_t *config, uint8_t *pdata, uint16_t dataAddr);
-EEPROM_ErrorHandle_t readBytes_At24EEPROM(At24EEPROM_t *config, uint8_t *pdata, uint16_t dataAddr, uint8_t n);
-void readLastAddr(At24EEPROM_t *config, uint8_t *LastdataAddr);
+EEPROM_ErrorHandle_t AT24_WriteU32(At24EEPROM_t *config, uint16_t *pdata, uint16_t dataAddr);
+EEPROM_ErrorHandle_t AT24_ReadU8(At24EEPROM_t *config, uint8_t *pdata, uint16_t dataAddr);
+EEPROM_ErrorHandle_t AT24_ReadBytes(At24EEPROM_t *config, uint8_t *pdata, uint16_t dataAddr, uint8_t n);
+EEPROM_ErrorHandle_t AT24_PageWrite(At24EEPROM_t *config, uint8_t *pdata, uint8_t pageID, uint16_t pageByteAddr);
+EEPROM_ErrorHandle_t AT24_PageRead(At24EEPROM_t *config, uint8_t *pdata, uint8_t pageID, uint16_t pageByteAddr);
+EEPROM_ErrorHandle_t AT24_PageErase(At24EEPROM_t *config, uint8_t pageID);
+EEPROM_ErrorHandle_t AT24_FullErase(At24EEPROM_t *config);
+
 
 #endif /* INC_AT24C256C_EEPROM_H_ */

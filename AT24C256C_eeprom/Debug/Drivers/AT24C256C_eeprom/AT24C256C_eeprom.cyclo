@@ -1,0 +1,10 @@
+../Drivers/AT24C256C_eeprom/AT24C256C_eeprom.c:19:22:AT24_Init	3
+../Drivers/AT24C256C_eeprom/AT24C256C_eeprom.c:46:22:AT24_WriteU8	2
+../Drivers/AT24C256C_eeprom/AT24C256C_eeprom.c:71:22:AT24_WriteU16	2
+../Drivers/AT24C256C_eeprom/AT24C256C_eeprom.c:101:22:AT24_WriteU32	2
+../Drivers/AT24C256C_eeprom/AT24C256C_eeprom.c:130:22:AT24_PageWrite	2
+../Drivers/AT24C256C_eeprom/AT24C256C_eeprom.c:156:22:AT24_PageRead	2
+../Drivers/AT24C256C_eeprom/AT24C256C_eeprom.c:182:22:AT24_ReadU8	2
+../Drivers/AT24C256C_eeprom/AT24C256C_eeprom.c:207:22:AT24_ReadBytes	3
+../Drivers/AT24C256C_eeprom/AT24C256C_eeprom.c:241:22:AT24_PageErase	2
+../Drivers/AT24C256C_eeprom/AT24C256C_eeprom.c:266:22:AT24_FullErase	3

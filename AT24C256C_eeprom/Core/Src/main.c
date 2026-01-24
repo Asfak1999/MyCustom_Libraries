@@ -47,7 +47,7 @@ I2C_HandleTypeDef hi2c1;
 
 
 uint8_t WriteData;
-uint8_t ReadData1;
+uint8_t ReadData;
 uint8_t ReadData2;
 uint8_t array[6];
 uint8_t lastAddress;
@@ -104,24 +104,19 @@ int main(void)
   At24EEPROM_t eeprom;
   AT24_Init(&eeprom, &hi2c1, 0xA0);
 
-  WriteData = 36;
-  AT24_WriteU8(&eeprom, &WriteData, 0x0000);
-  WriteData = 26;
-  AT24_WriteU8(&eeprom, &WriteData, 0x0001);
-  WriteData = 12;
-  AT24_WriteU8(&eeprom, &WriteData, 0x0002);
-  WriteData = 55;
-  AT24_WriteU8(&eeprom, &WriteData, 0x0003);
-  WriteData = 85;
-  AT24_WriteU8(&eeprom, &WriteData, 0x0004);
-  WriteData = 100;
-  AT24_WriteU8(&eeprom, &WriteData, 0x0005);
 
-  readBytes_At24EEPROM(&eeprom, array, 0x0000, 6);
 
-  WriteData = 10;
-  AT24_WriteU8(&eeprom, &WriteData, 0x0006);
-  readLastAddr(&eeprom, &lastAddress);
+
+  WriteData = 188;
+  AT24_WriteU8(&eeprom, &WriteData, 0x000);
+
+
+  AT24_ReadU8(&eeprom, &ReadData, 0x000);
+
+
+
+
+
 
 
   /* USER CODE END 2 */
