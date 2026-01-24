@@ -10,10 +10,22 @@
 
 
 
-void init_At24EEPROM(At24EEPROM_t *config, I2C_HandleTypeDef *i2c, uint8_t devAddress){
+int init_At24EEPROM(At24EEPROM_t *config, I2C_HandleTypeDef *i2c, uint8_t devAddress){
 
 	config->i2c_interface = i2c;
 	config->devAddr = devAddress;
+
+	if(HAL_I2C_Init(config->i2c_interface) != HAL_OK){
+		return 1;
+	}
+
+	if(HAL_I2C_IsDeviceReady(config->i2c_interface, config->devAddr, 5, 100) != HAL_OK){
+
+		return 2;
+	}
+
+	return 0;
+
 }
 
 
@@ -29,7 +41,7 @@ int8_t write_At24EEPROM(At24EEPROM_t *config, uint8_t *pdata, uint16_t dataAddr)
 		return 0;
 	}
 
-	return -1;
+	return 3;
 }
 
 
@@ -41,5 +53,12 @@ int8_t read_At24EEPROM(At24EEPROM_t *config, uint8_t *pdata, uint16_t dataAddr){
 		HAL_Delay(50);
 		return 0;
 	}
-	return -1;
+	return 4;
 }
+
+
+//uint8_t readBytes_At24EEPROM(At24EEPROM_t *config, uint8_t *pdata, uint16_t dataAddr){
+//
+//
+//
+//}
