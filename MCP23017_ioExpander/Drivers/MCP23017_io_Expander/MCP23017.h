@@ -68,7 +68,6 @@ typedef struct {
 /*
  * @breif MCP23017 I/O expander configuration register union
  */
-
 typedef union {
 
 	uint8_t all;
@@ -85,7 +84,6 @@ typedef union {
 /*
  * @breif MCP23017 expander direction set register struct
  */
-
 typedef struct{
 
 	uint8_t IO0 : 1;	/*!< pin 0 */
@@ -111,7 +109,6 @@ typedef struct{
 /*
  * @breif MCP23017 expander direction set register unioin
  */
-
 typedef union{
 
 	uint8_t all;
@@ -129,7 +126,6 @@ typedef union{
 /*
  * @breif MCP23017 expander GPIO pull-up resistor registor struct
  */
-
 typedef struct{
 
 	uint8_t PU0 : 1;	/*!< pull-up 0 */
@@ -154,7 +150,6 @@ typedef struct{
 /*
  * @breif MCP23017 expander GPIO pull-up resistor registor struct
  */
-
 typedef union {
 
 	uint8_t all;
@@ -170,7 +165,6 @@ typedef union {
 /*
  * @breif MCP23017 expander Interrupt flag registor struct
  */
-
 typedef struct {
 
 	uint8_t INT0 : 1;	/*!< INT flag 0 */
@@ -195,7 +189,6 @@ typedef struct {
 /*
  * @breif MCP23017 expander Interrupt flag registor union
  */
-
 typedef union{
 
 	uint8_t all;
@@ -210,7 +203,6 @@ typedef union{
 /*
  * @breif MCP23017 expander Interrupt capture registor struct
  */
-
 typedef struct {
 
 	uint8_t ICP0 : 1;	/*!< ICP bit 0 */
@@ -236,7 +228,6 @@ typedef struct {
 /*
  * @breif MCP23017 expander Interrupt capture registor struct
  */
-
 typedef union {
 
 	uint8_t all;
@@ -251,7 +242,6 @@ typedef union {
 /*
  * @breif MCP23017 expander Port register struct
  */
-
 typedef struct {
 
 	uint8_t GP0 : 1;	/*!< GPIO bit 0 */
@@ -276,7 +266,6 @@ typedef struct {
 /*
  * @breif MCP23017 expander Port register union
  */
-
 typedef union {
 
 	uint8_t all;
@@ -291,7 +280,6 @@ typedef union {
 /*
  * @breif MCP23017 expander output latch register struct
  */
-
 typedef struct {
 
 	uint8_t OL0 : 1;	/*!< OL bit 0 */
@@ -317,7 +305,6 @@ typedef struct {
 /*
  * @breif MCP23017 expander output latch register union
  */
-
 typedef union {
 
 	uint8_t all;
@@ -325,6 +312,22 @@ typedef union {
 	STRUCT_MCP23017_outLatch_t bits;
 
 }UINOIN_MCP23017_outLatch_t;
+
+
+
+/*
+ * @breif MCP23017 expander error handling enum
+ */
+
+typedef enum {
+
+	MCP23017_OK,
+	MC23017_NOT_READY,
+	MCP20317_ERROR
+
+}ENUM_MCP23017_error_t;
+
+
 
 
 
