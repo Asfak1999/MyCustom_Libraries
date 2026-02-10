@@ -8,7 +8,8 @@
 #ifndef MCP23017_IO_EXPANDER_MCP23017_H_
 #define MCP23017_IO_EXPANDER_MCP23017_H_
 
-
+#include <stdint.h>
+#include "main.h"
 
 
 #define IODIRA		0x00	/*!< Direction register */
@@ -20,7 +21,7 @@
 #define GPPUA		0x06	/*!< GPIO PULL-UP resistor register */
 #define	INTFA		0x07	/*!< Interrupt flag register */
 #define INTCAPA		0x08	/*!< Interrupt capture value port register */
-#define	GPIOA		0x09	/*!< GPIO port register */
+#define	GPIO_A		0x09	/*!< GPIO port register */
 #define OLATA		0x0A	/*!< Output latch register */
 
 #define IODIRB		0x10	/*!< Direction register */
@@ -32,7 +33,7 @@
 #define GPPUB		0x16	/*!< GPIO PULL-UP resistor register */
 #define	INTFB		0x17	/*!< Interrupt flag register */
 #define INTCAPB		0x18	/*!< Interrupt capture value register */
-#define	GPIOB		0x19	/*!< GPIO port register */
+#define	GPIO_B		0x19	/*!< GPIO port register */
 #define OLATB		0x1A	/*!< Output latch register */
 
 
@@ -316,12 +317,26 @@ typedef union {
 
 
 /*
+ * @breif MCP23017 pin port enum
+ */
+
+typedef enum {
+
+	PORTA,
+	PORTB
+
+}ENUM_MCP23017_port_t;
+
+
+
+/*
  * @breif MCP23017 expander error handling enum
  */
 
 typedef enum {
 
 	MCP23017_OK,
+	MC23017_I2C_ERROR,
 	MC23017_NOT_READY,
 	MCP20317_ERROR
 
@@ -330,14 +345,36 @@ typedef enum {
 
 
 
+/*
+ * @breif intializing the device instance
+ */
+
+typedef struct {
+
+	I2C_HandleTypeDef *i2c_interface;	/*!< I2c Interface instance         */
+	uint8_t devAddr;					/*!< MCP20317 Device address         */
+
+}STRUCT_MCP23017_inst_t;
+
+
+STRUCT_MCP23017_inst_t *inst;
+
+
 
 /*
  * @breif MCP2307 I/O expander device configuration Initialization
  * @param config configuration of register
  * @param dev configuration of device instance
  */
-void init_MCP23017(STRUCT_MCP23017_config_t *config, I2C_HandleTypeDef *i2c, uint8_t devAddress);
+ENUM_MCP23017_error_t init_MCP23017(STRUCT_MCP23017_config_t *config, I2C_HandleTypeDef *i2c, uint8_t devAddress);
 
+
+/*
+ * @breif MCP23017 Port I/O mode
+ * @param port
+ * @param pin
+ */
+void pinMode(ENUM_MCP23017_port_t port, uint8_t pin);
 
 
 #endif /* MCP23017_IO_EXPANDER_MCP23017_H_ */

@@ -1,0 +1,2 @@
+../Drivers/MCP23017_io_Expander/MCP23017.c:24:23:init_MCP23017	24	static
+../Drivers/MCP23017_io_Expander/MCP23017.c:48:6:pinMode	40	static
